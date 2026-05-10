@@ -1,0 +1,44 @@
+# Tiny UI demo: cycle through button variants, watch the status badge update.
+target: ./index.html
+
+viewport:
+  width: 1280
+  height: 720
+
+duration_target_seconds: 16
+
+flow:
+  - mouse_park: { x: 0.5, y: 0.65 }
+  - hold: 1300
+
+  - hover: '#btnPrimary'
+  - wait: 600
+  - click: '#btnPrimary'
+  - wait: 1500
+
+  - hover: '#btnSecondary'
+  - wait: 500
+  - click: '#btnSecondary'
+  - wait: 1500
+
+  - hover: '#btnDestructive'
+  - wait: 500
+  - click: '#btnDestructive'
+  - wait: 1500
+
+  - hover: '#btnGhost'
+  - wait: 500
+  - click: '#btnGhost'
+  - wait: 1800
+
+cursor:
+  style: crosshair           # precision feel for clicking specific UI components
+  color: 'rgba(24,24,27,0.95)'                    # ink-dark on the light theme
+  pulse_color: 'rgba(99,102,241,0.95)'            # indigo flash on click
+  size: 24
+
+output:
+  dir: '../../docs/demos/'
+  basename: 'shadcn-button'
+  formats: [mp4, gif]
+  gif_max_mb: 10

@@ -1,0 +1,58 @@
+# Dogfood example: reproduces the Phase 1 verification flow against the
+# claude-tabletop catalyst project. Demonstrates click + scroll + multi-button
+# sequencing, the same shape the recorder will be used for in the wild.
+target: /home/staycold66/projects/claude-tabletop/examples/live-demo/index.html
+
+viewport:
+  width: 1280
+  height: 720
+
+duration_target_seconds: 19   # informational
+
+flow:
+  - mouse_park: { x: 0.6, y: 0.5 }
+  - hold: 1500
+
+  - click: '#timerStart'
+  - wait: 2200
+
+  - scroll_to: '#phase-1'
+  - wait: 1100
+
+  - click: { selector: '#phase-1 .reveal-btn', nth: 0 }
+  - wait: 2200
+
+  - click: { selector: '#phase-1 .reveal-btn', nth: 1 }
+  - wait: 2200
+
+  # Scroll back to top via a dedicated body selector
+  - scroll_to: 'body'
+  - wait: 1100
+
+  - click: '#revealAllBtn'
+  - wait: 2400
+
+  - click: '#hideAllBtn'
+  - wait: 1500
+
+captions:
+  - at_ms: 1500
+    text: 'Click Start to begin the exercise'
+    duration_ms: 2500
+  - at_ms: 5000
+    text: 'Reveal injects one at a time'
+    duration_ms: 4500
+  - at_ms: 11000
+    text: 'Or skip ahead with Reveal All'
+    duration_ms: 3500
+
+cursor:
+  style: pulse
+  color: 'rgba(255,255,255,0.95)'
+  pulse_color: 'rgba(88,166,255,0.95)'
+
+output:
+  dir: '../docs/demos/'
+  basename: 'tabletop-runbook'
+  formats: [mp4, gif]
+  gif_max_mb: 10

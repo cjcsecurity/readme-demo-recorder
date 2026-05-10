@@ -1,0 +1,39 @@
+# Recorded scratch
+/tmp/
+.tmp/
+*.webm
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Node — match directories AND symlinks named node_modules
+node_modules
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Vercel (if a demo deploy is added later)
+.vercel/
+
+# Recorded outputs. The canonical example dogfood demos are committed (the
+# README hero is one of them); ad-hoc recordings stay local. Users who
+# vendor this skill into their own repo set up their own .gitignore.
+/docs/demos/*
+!/docs/demos/tabletop-runbook.gif
+!/docs/demos/tabletop-runbook.mp4
+!/docs/demos/form-submission.gif
+!/docs/demos/form-submission.mp4
+!/docs/demos/shadcn-button.gif
+!/docs/demos/shadcn-button.mp4

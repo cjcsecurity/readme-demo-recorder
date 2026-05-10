@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Sign-up — readme-demo-recorder example</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --panel: #111c34;
+    --border: #1e293b;
+    --ink: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --accent-deep: #0ea5e9;
+    --good: #34d399;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; height: 100%;
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", Inter, sans-serif;
+    background: radial-gradient(1200px 600px at 70% -10%, #1e3a8a33, transparent), var(--bg);
+    color: var(--ink);
+  }
+  main {
+    min-height: 100%;
+    display: grid; place-items: center;
+    padding: 48px 24px;
+  }
+  .card {
+    width: 460px; max-width: 100%;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 28px;
+    box-shadow: 0 30px 80px -30px rgba(0,0,0,.6);
+  }
+  h1 {
+    margin: 0 0 4px;
+    font-size: 22px; font-weight: 700; letter-spacing: -0.01em;
+  }
+  p.lead { margin: 0 0 24px; color: var(--muted); font-size: 14px; }
+  label {
+    display: block; font-size: 12px; color: var(--muted);
+    margin: 16px 0 6px;
+    text-transform: uppercase; letter-spacing: .08em;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 11px 13px;
+    background: #0a1224;
+    color: var(--ink);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font: inherit;
+    transition: border-color 120ms;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  button {
+    width: 100%;
+    margin-top: 22px;
+    padding: 12px 14px;
+    background: var(--accent-deep);
+    color: white;
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    font: 600 14px inherit;
+    cursor: pointer;
+    transition: background 120ms, transform 80ms;
+  }
+  button:hover { background: var(--accent); }
+  button:active { transform: translateY(1px); }
+  .toast {
+    margin-top: 20px;
+    padding: 10px 12px;
+    background: rgba(52,211,153,.1);
+    border: 1px solid rgba(52,211,153,.45);
+    border-radius: 8px;
+    color: var(--good);
+    font-size: 13px;
+    opacity: 0; transform: translateY(4px);
+    transition: opacity 240ms, transform 240ms;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+<main>
+  <section class="card">
+    <h1>Join the early-access list</h1>
+    <p class="lead">A tiny form, recorded for a README hero.</p>
+
+    <label for="name">Name</label>
+    <input id="name" type="text" autocomplete="off" placeholder="Ada Lovelace" />
+
+    <label for="email">Email</label>
+    <input id="email" type="email" autocomplete="off" placeholder="ada@example.com" />
+
+    <label for="why">Why are you interested?</label>
+    <textarea id="why" rows="3" placeholder="One sentence is plenty."></textarea>
+
+    <button id="submitBtn">Request access</button>
+    <div id="toast" class="toast" role="status">✓ You're on the list — check your inbox.</div>
+  </section>
+</main>
+<script>
+  document.getElementById('submitBtn').addEventListener('click', () => {
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+  });
+</script>
+</body>
+</html>

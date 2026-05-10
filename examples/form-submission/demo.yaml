@@ -1,0 +1,45 @@
+# Simple form demo: fill three fields, click submit, watch the toast.
+target: ./index.html
+
+viewport:
+  width: 1280
+  height: 720
+
+duration_target_seconds: 18
+
+flow:
+  - mouse_park: { x: 0.5, y: 0.4 }
+  - hold: 1200
+
+  - type:
+      selector: '#name'
+      text: 'Ada Lovelace'
+      delay_ms: 32
+  - wait: 600
+
+  - type:
+      selector: '#email'
+      text: 'ada@example.com'
+      delay_ms: 28
+  - wait: 600
+
+  - type:
+      selector: '#why'
+      text: 'Tired of hand-rolling Playwright + ffmpeg for every README.'
+      delay_ms: 22
+  - wait: 1200
+
+  - click: '#submitBtn'
+  - wait: 2200
+
+cursor:
+  style: minimal             # subtle for typing-heavy demos — gets out of the way
+  color: 'rgba(56,189,248,0.95)'
+  pulse_color: 'rgba(56,189,248,0.95)'   # unused for minimal but kept for forward-compat
+  size: 14
+
+output:
+  dir: '../../docs/demos/'
+  basename: 'form-submission'
+  formats: [mp4, gif]
+  gif_max_mb: 10

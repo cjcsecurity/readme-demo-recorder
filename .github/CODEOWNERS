@@ -1,0 +1,18 @@
+# Default owner for everything in the repo.
+# When a PR touches any file, GitHub auto-requests review from these handles.
+*                                       @cjcsecurity
+
+# Skill source — extra-careful review, since downstream installs run these
+/skills/                                @cjcsecurity
+
+# The driver — handles user-supplied YAML and shells out to ffmpeg
+/skills/readme-demo-recorder/scripts/   @cjcsecurity
+
+# Reference docs — schema, encoding pipeline, cursor injection recipe
+/skills/readme-demo-recorder/references/ @cjcsecurity
+
+# Shipped example demos + their HTML targets
+/examples/                              @cjcsecurity
+
+# Dogfood recordings — the README hero ships from here
+/docs/demos/                            @cjcsecurity
