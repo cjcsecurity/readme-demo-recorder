@@ -42,12 +42,22 @@ catalyst project's runbook.
 
 ## Why this exists
 
-Every Claude Code skill that ships visual output deserves a polished
-demo. Until now, building one was a 50-line Playwright script + an
-ffmpeg pipeline glued together by hand. This skill makes it a 1-command
-operation, and bakes in the not-so-obvious details (cursor injection
-that survives `file://` loads, drawtext with `textfile=` to avoid
-escape hell, palettegen with `stats_mode=diff` for clean GIFs).
+Building a polished README demo is a 50-line Playwright + ffmpeg pipeline
+that bakes in a handful of not-so-obvious details — cursor injection that
+survives `file://` loads, drawtext with `textfile=` to avoid escape hell,
+palettegen with `stats_mode=diff` for clean GIFs. This skill makes it a
+1-command operation.
+
+The niche it fills is deliberately narrow: **Claude Code skill demos
+where the artifact is a single-file HTML target**, with auto-fit logic
+tuned for GitHub's specific 10 MB inline-rendering cap and a
+`file://`-first workflow. For general product-demo recording with macOS
+chrome, branding, zoom, and a richer cursor toolkit, the better-engineered
+generalists are [`webreel`](https://github.com/vercel-labs/webreel) and
+[`testreel`](https://github.com/greentfrapp/testreel). For the narrow
+case of "I just shipped a Claude skill that produces a self-contained
+HTML artifact and want its README hero produced by another Claude skill,"
+this is the right fit.
 
 For the full backstory and design decisions, see [`PLAN.md`](PLAN.md).
 
